@@ -15,7 +15,7 @@ class Solution {                                //inorder == LNR
         
         if(root==NULL){
             return;
-        }
+          }
         count++;
         treecount(root->left,count,ans);
          ans=max(ans,count);
