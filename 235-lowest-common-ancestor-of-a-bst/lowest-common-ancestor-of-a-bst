@@ -1,0 +1,76 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+        if(root ==NULL){
+            return NULL;
+        }
+        if(p->val<root->val && q->val<root->val){
+           TreeNode* left = lowestCommonAncestor(root->left,p,q);
+           return left;
+        }
+       if(p->val>root->val && q->val>root->val){
+           TreeNode* right = lowestCommonAncestor(root->right,p,q);
+           return right;
+        }
+        return root;    // this handle three cases if nodes are in diff side than return root if root->val equals to p or q then written the current node ;;;;
+    }
+};
+
+// if(root->val == p->val) return root;   you can also write this in place of return root;;;
+// if(root->val == q->val) return root;
+// if((p->val < root->val && q->val > root->val) ||
+//    (p->val > root->val && q->val < root->val))
+//     return root;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// correct but not optimal for bst this is normal binary tree appproach
+// class Solution {
+// public:
+//     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+//         if(root ==NULL){
+//             return NULL;
+//         }
+//         if((p->val>root->val && q->val<root->val)||(p->val<root->val && q->val>root->val)){
+//             return root;
+//         }
+//        if(root->val == p->val){
+//             return p;
+//         }
+//          if(root->val == q->val){
+//             return q;
+//         }
+//         TreeNode* left=lowestCommonAncestor(root->left,p,q);
+//         TreeNode* right = lowestCommonAncestor(root->right,p,q);
+//         if(left!=NULL && right !=NULL ) return root;
+//          if(left!=NULL ) return left;
+//           return right;
+        
+//     }
+// };
