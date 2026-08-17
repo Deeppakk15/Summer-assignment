@@ -1,0 +1,25 @@
+class Solution {
+public:
+    int lastStoneWeight(vector<int>& stones) {
+        priority_queue<int>pq;
+        for(int i=0;i<stones.size();i++){
+           pq.push(stones[i]);
+        }
+ 
+  while(pq.size()>1){
+   int bigg1= pq.top();
+   pq.pop();
+   int bigg2=pq.top();
+pq.pop();
+   if(bigg1!=bigg2){
+    pq.push(bigg1-bigg2);
+   }
+  }
+  
+if(!pq.empty()){
+    return pq.top();
+}
+    return 0;
+
+    }
+};
