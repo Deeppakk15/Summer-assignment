@@ -4,19 +4,19 @@ class Solution {
         queue<int>q;
         for(int i=0;i<n;i++){
             if(indegree[i]==0){
-                count++;
+            
                 q.push(i);
             }
         }
 
         while(!q.empty()){
             int u=q.front();
+            count++;
             q.pop();
     
       for(int &v:adj[u]){
         indegree[v]--;
         if(indegree[v]==0){
-             count++;
             q.push(v);
         }
       }
