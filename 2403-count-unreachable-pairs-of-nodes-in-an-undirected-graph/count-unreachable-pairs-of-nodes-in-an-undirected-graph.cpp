@@ -18,14 +18,14 @@ public:
             adj[u].push_back(v);
             adj[v].push_back(u);
         }
-        long long size=n;
+        long long remainigsize=n;
         int count=0;
         long long ans=0;
         for (int i = 0; i < n; i++) {
             if (!visited[i]) {
                 dfs(adj,i, n, visited,count);
-              ans=ans+count*(size-count);    
-                size=size-count;
+              ans=ans+count*(remainigsize-count);    
+                remainigsize=remainigsize-count;
                 count=0;
             }
         }
