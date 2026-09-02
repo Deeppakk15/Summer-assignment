@@ -15,9 +15,9 @@ public:
     grid[0][0]=1;
 
     while(!q.empty()){
-        pair<int,pair<int,int>>temp=q.front();
+        auto temp=q.front();
         q.pop();
-        pair<int,int>temp2=temp.second;
+        auto temp2=temp.second;
         int step=temp.first;
         int i=temp2.first;
         int j=temp2.second;
